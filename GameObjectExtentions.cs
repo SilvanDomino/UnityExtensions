@@ -1,4 +1,4 @@
-?using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -12,5 +12,12 @@ public static class Extensions
         {
             message(component);
         }
+    }
+
+    public static T GetOrAdd<T>(this GameObject target) where T : Component{
+        T c = target.GetComponent<T>();
+        if (c == null)
+            c = target.AddComponent<T>();
+        return c;
     }
 }
