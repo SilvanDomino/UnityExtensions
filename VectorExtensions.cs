@@ -13,4 +13,16 @@ public static class VectorExtensions
         float y = sin * vector.x + cos * vector.y;
         return new Vector2(x, y);
     }
+	
+	public static bool operator ~(this Vector2 vector, Vector2 vector2)
+    {
+        
+        return true;;
+    }
+	
+	public static bool Approximate(this Vector3 vector, Vector3 vector2, float difDist, out Vector3 dif)
+    {
+        dif = vector -vector2;
+        return (dif.x < difDist && dif.x > -difDist) && (dif.y < difDist && dif.y > -difDist) && (dif.z < difDist && dif.z > -difDist);
+    }
 }
